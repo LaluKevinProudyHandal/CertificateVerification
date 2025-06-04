@@ -1,0 +1,33 @@
+### Health Check
+GET http://localhost:3000/health
+
+### Blockchain Health Check
+GET http://localhost:3000/api/certificates/health
+
+### Get Certificate Statistics
+GET http://localhost:3000/api/certificates/list
+
+### Issue Certificate (Test - you need to use Postman for file upload)
+POST http://localhost:3000/api/certificates/issue
+Content-Type: multipart/form-data; boundary=----WebKitFormBoundary7MA4YWxkTrZu0gW
+
+------WebKitFormBoundary7MA4YWxkTrZu0gW
+Content-Disposition: form-data; name="participantName"
+
+John Doe
+------WebKitFormBoundary7MA4YWxkTrZu0gW
+Content-Disposition: form-data; name="eventName"
+
+Programming Contest 2024
+------WebKitFormBoundary7MA4YWxkTrZu0gW
+Content-Disposition: form-data; name="certificate"; filename="certificate.pdf"
+Content-Type: application/pdf
+
+< ./sample-certificate.pdf
+------WebKitFormBoundary7MA4YWxkTrZu0gW--
+
+### Verify Certificate by Hash (replace with actual hash)
+GET http://localhost:3000/api/certificates/verify/abcd1234567890abcd1234567890abcd1234567890abcd1234567890abcd1234
+
+### Verify Certificate by ID (replace with actual ID)
+GET http://localhost:3000/api/certificates/verify-id/1
